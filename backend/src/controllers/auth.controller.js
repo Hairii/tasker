@@ -1,7 +1,12 @@
 import argon2 from "argon2";
 import jwt from "jsonwebtoken";
 
-import { findUserByMail, createUser, deleteUserByMail, updateUser } from "../models/auth.model.js";
+import {
+  findUserByMail,
+  createUser,
+  deleteUserByMail,
+  updateUser,
+} from "../models/auth.model.js";
 import { registerSchema } from "../validations/auth.validation.js";
 
 // register user
@@ -41,41 +46,40 @@ export const login = async (req, res) => {
     const token = jwt.sign(
       { id: user.id, mail: user.mail },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: "1h" },
     );
     //stockage dans cookies
-    res.cookie('token', token, {
+    res.cookie("token", token, {
       httpOnly: true,
-      sameSite: 'lacks',
-      isSecureContext: development,
-      maxAge: 60 * 60 * 1000 // 1h
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 60 * 60 * 1000, // 1h
     });
 
-    
     res.json({ message: "Connexion réussie" });
   } catch (error) {
-    console.error('erreur login', error.message);
+    console.error("erreur login", error.message);
     res.status(500).json({ message: "erreur serveur (login)" });
   }
 };
 
 export const deleteUser = async (req, res) => {
   try {
-    const mail = req.user.mail; 
+    const mail = req.user.mail;
     const deleted = await deleteUserByMail(mail);
     if (!deleted) {
-      return res.status(404).json({ message: 'utilisateur introuvable' });
+      return res.status(404).json({ message: "utilisateur introuvable" });
     }
-    res.json({ message: 'utilisateur supprimé' });
+    res.json({ message: "utilisateur supprimé" });
   } catch (error) {
-    console.error('erreur deleteUser', error.message);
-    res.status(500).json({ message: 'erreur serveur (deleteUser)' });
+    console.error("erreur deleteUser", error.message);
+    res.status(500).json({ message: "erreur serveur (deleteUser)" });
   }
 };
 
 export const update = async (req, res) => {
   try {
-    const mail = req.user.mail; 
+    const mail = req.user.mail;
 
     const existingUser = await findUserByMail(mail);
     if (!existingUser) {
@@ -86,7 +90,7 @@ export const update = async (req, res) => {
     await updateUser(mail, { password: hash });
     res.json({ message: "mot de passe mis à jour" });
   } catch (error) {
-    console.error('erreur updateUser', error.message);
-    res.status(500).json({ message: 'erreur serveur (updateUser)' });
+    console.error("erreur updateUser", error.message);
+    res.status(500).json({ message: "erreur serveur (updateUser)" });
   }
 };
