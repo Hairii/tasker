@@ -6,7 +6,7 @@ const createTask = async () => {
     }
     const userID = localStorage.getItem("userID");
     console.log(userID);
-    const response = await fetch(`http://localhost:5000/api/tasks/addtasks/${userID}`, {
+    const response = await fetch(`/api/tasks/addtasks/${userID}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name }),

@@ -25,7 +25,7 @@ registerFormBox.addEventListener('submit', async (event) => {
     const password = document.getElementById("password-register").value;
 
     try{
-        const response = await fetch('http://localhost:5000/api/auth/register', {
+        const response = await fetch('/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ mail: email, password })
@@ -56,7 +56,7 @@ loginFormBox.addEventListener('submit', async (event) => {
     const email = document.getElementById("email-login").value;
     const password = document.getElementById("password-login").value;
 
-    fetch('http://localhost:5000/api/auth/login', {
+    fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mail: email, password }) 
