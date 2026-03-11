@@ -46,7 +46,7 @@ export const login = async (req, res) => {
     //stockage dans cookies
     res.cookie('token', token, {
       httpOnly: true,
-      sameSite: 'strict',
+      sameSite: 'lacks',
       isSecureContext: development,
       maxAge: 60 * 60 * 1000 // 1h
     });
