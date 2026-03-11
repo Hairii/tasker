@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasker</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header>
+      <button id="add-btn" type="button">Ajouter +</button>
+      <p id="tasker">tasker</p>
+      <button id="deco-btn" type="button">Déconnexion</button>
+    </header>
+    <main class="dashboard">
+      <div id="all-list">
+        <div class="task-list">
+          <div class="list-title" id="to-do"><p>à faire</p></div>
+          <hr />
+          <div class="task-name">
+            
+          </div>
+        </div>
+        <div class="task-list">
+          <div class="list-title" id="in-progress"><p>en cours</p></div>
+          <hr />
+          <div class="task-name">
+           
+          </div>
+        </div>
+        <div class="task-list">
+          <div class="list-title" id="finish"><p>terminé</p></div>
+          <hr />
+          <div class="task-name">
+           
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2026 Tasker. All rights reserved.</p>
+    </footer>
+
+ <div id="modal-overlay">
+  <div id="modal">
+    <h2>Modifier la tâche</h2>
+    <input type="text" id="modalName" placeholder="Nouveau nom" />
+    <div class="modal-btn">
+      <button onclick="closeModal()">Annuler</button>
+      <button onclick="saveEdit()">Sauvegarder</button>
+    </div>
+  </div>
+</div>
+  </body>
+  <script src="../js/logout.js" defer></script>
+  <script src="../js/dashboard.js" ></script>
+  
+</html>

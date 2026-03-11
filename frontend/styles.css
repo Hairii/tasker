@@ -1,0 +1,395 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* header */
+header {
+  display: flex;
+  height: 10vh;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fcbaba;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+/* footer */
+footer {
+  display: flex;
+  height: 10vh;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fcbaba;
+  color: white;
+  box-shadow: 0px 4px 20px -2px gray;
+  width: 100%;
+}
+
+/* main */
+main {
+  min-height: 80vh;
+  background-color: #ffeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex: 1;
+}
+
+/* main dashboard */
+main.dashboard {
+  align-items: flex-start;
+}
+
+/* btn header*/
+#add-btn,
+#back-btn,
+#deco-btn {
+  background-color: transparent;
+  border: solid 1px white;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0;
+}
+
+#add-btn:hover,
+#back-btn:hover,
+#deco-btn:hover {
+  background-color: white;
+  color: #ff9f9f;
+  border: solid 1px #ff9f9f;
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+#tasker {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+/* fieldset   */
+fieldset {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border: 2px solid #f83f3f;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.5em;
+  background: #f83f3f;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+label {
+  font-weight: 500;
+  color: #000000;
+  margin-top: 5px;
+}
+
+/* input */
+input {
+  padding: 10px 12px;
+  border: 1px solid #f83f3f;
+  border-radius: 8px;
+  font-size: 0.95em;
+  transition: all 0.25s ease;
+  background-color: #f9fafb;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f83f3f;
+  box-shadow: 0 0 8px rgba(248, 63, 63, 0.4);
+  background-color: #ffffff;
+}
+
+.CheckBox_Form {
+  margin-bottom: 15px;
+}
+
+/* btn */
+button {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f83f3f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(248, 63, 63, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  background: #dd3333;
+}
+
+/* dashboard */
+#all-list {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.list-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.list-title p {
+  margin: 8px 0;
+}
+
+.task-list {
+  background-color: white;
+  width: 30%;
+  min-height: 70vh;
+  box-shadow: 0px 4px 20px -2px gray;
+  border: solid 1px rgb(200, 200, 200);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-list hr {
+  border: none;
+  border-top: 2px solid #ffeeee;
+  margin: 0;
+}
+
+/* task */
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff5f5;
+  margin: 8px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 4px solid #fcbaba;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.task:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(252, 186, 186, 0.5);
+}
+
+.task p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  text-align: left;
+}
+
+/* btn task */
+.btn_action {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.btn_action button {
+  margin-top: 0;
+  padding: 6px 10px;
+  font-size: 0.8em;
+  border-radius: 6px;
+  background: #f83f3f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn_action button:hover {
+  background: #dd3333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(248, 63, 63, 0.4);
+}
+
+#finish {
+  color: rgb(71, 224, 71);
+}
+
+#in-progress {
+  color: rgb(248, 150, 58);
+}
+
+#to-do {
+  color: rgb(255, 61, 61);
+}
+
+.task-name {
+  overflow-y: auto;
+  flex: 1;
+  padding: 5px;
+}
+
+.task-name::-webkit-scrollbar {
+  display: none;
+}
+
+/* formulaire authenticate */
+#registerFormBox {
+  display: none;
+}
+
+#showRegisterForm,
+#showLoginForm {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  #all-list {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .task-list {
+    width: 90%;
+    min-height: 30vh;
+  }
+
+  fieldset {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+
+  header {
+    height: auto;
+    padding: 15px 0;
+  }
+
+  legend {
+    font-size: 1.3em;
+  }
+
+  input {
+    font-size: 0.9em;
+  }
+
+  button {
+    font-size: 0.95em;
+  }
+}
+/* modal */
+#modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid #f83f3f;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 350px;
+  animation: fadeIn 0.3s ease;
+}
+
+#modal h2 {
+  color: #f83f3f;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+#modal input {
+  width: 100%;
+}
+
+.modal-btn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal-btn button {
+  margin-top: 0;
+  width: 45%;
+}
+
+.modal-btn button:first-child {
+  background: #aaa;
+}
+
+.modal-btn button:first-child:hover {
+  background: #888;
+}
